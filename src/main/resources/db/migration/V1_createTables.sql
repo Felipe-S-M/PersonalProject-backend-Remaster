@@ -1,7 +1,9 @@
 create table ocupation( id int not null auto_increment primary key,
+                    version int,
                     name varchar(45) );
 
 create table employee( id int not null auto_increment primary key,
+                          version int,
                           ocupation_id int not null,
                           email varchar(70),
                           password char(60),
@@ -9,6 +11,7 @@ create table employee( id int not null auto_increment primary key,
                           foreign key (ocupation_id) references ocupation(id) );
 
 create table client(id int not null auto_increment primary key,
+                     version int,
                      name varchar(45),
                      email varchar(70),
                      cpf VARCHAR(20) ,
@@ -16,6 +19,7 @@ create table client(id int not null auto_increment primary key,
 );
 
 create table budget( id int not null auto_increment primary key,
+                        version int,
                         date date,
                         value decimal(13,2),
                         expected_hours int,
@@ -26,6 +30,7 @@ create table budget( id int not null auto_increment primary key,
                         foreign key (client_id) references client(id) );
 
 create table service_order(id int not null auto_increment primary key,
+                          version int,
                           budget_id int not null,
                           status int,
                           name varchar(45),
@@ -34,10 +39,12 @@ create table service_order(id int not null auto_increment primary key,
                           foreign key (budget_id) references budget(id) );
 
 create table service_type(id int not null auto_increment primary key,
+                         version int,
                          description varchar(45),
                          value decimal(13,2) );
 
 create table service_type_budget(id int not null auto_increment primary key,
+                                   version int,
                                    service_type_id int not null,
                                    budget_id int not null,
                                    foreign key (budget_id) references budget(id),
