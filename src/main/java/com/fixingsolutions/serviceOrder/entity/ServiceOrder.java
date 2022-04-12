@@ -1,14 +1,13 @@
 package com.fixingsolutions.serviceOrder.entity;
 
 import com.fixingsolutions.budget.entity.Budget;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Version;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Data
 public class ServiceOrder {
     @Id
     private Long id;
@@ -16,6 +15,9 @@ public class ServiceOrder {
     private Integer version;
 
     @ManyToOne
+    @JoinTable(
+            name = "budget",
+            joinColumns = @JoinColumn(name = "id"))
     private Budget budget;
 
     private Status status;
