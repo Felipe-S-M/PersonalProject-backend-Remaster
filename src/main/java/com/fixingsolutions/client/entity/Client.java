@@ -1,13 +1,16 @@
 package com.fixingsolutions.client.entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
 @Entity
+@Data
 public class Client {
     @Id
-    private Long id;
+    private Integer id;
     @Version
     private Integer version;
 

@@ -1,0 +1,2 @@
+-- insert into authority(id, authority) values (1, 'ROLE_ADMIN');
+-- insert into employee(id, version, username, password, name) values (1, 0, 'admin@fixingsolutions.com', 'admin', 'admin');

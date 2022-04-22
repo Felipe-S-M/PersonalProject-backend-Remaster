@@ -1,17 +1,17 @@
 package com.fixingsolutions.employee.entity;
 
-import com.fixingsolutions.ocupation.entity.Ocupation;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "employee")
 @Data
 public class Employee {
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Version
     private Integer version;
@@ -23,9 +23,7 @@ public class Employee {
     @ManyToMany
     @JoinTable(
             name = "authorities_employee",
-            joinColumns = @JoinColumn(name = "username"))
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id"))
     private List<Authority> authorities;
-
-    @ManyToOne
-    private Ocupation ocupation;
 }

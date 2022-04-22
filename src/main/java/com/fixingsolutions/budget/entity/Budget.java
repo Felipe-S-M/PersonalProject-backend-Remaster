@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Data
 public class Budget {
     @Id
-    private Long id;
+    private Integer id;
 
     @Version
     private Integer version;
@@ -22,11 +22,10 @@ public class Budget {
     private Boolean approved;
 
     @ManyToOne
-    @JoinTable(
-            name = "employee",
-            joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name="created_by")
     private Employee createdBy;
 
     @ManyToOne
+    @JoinColumn(name="client_id")
     private Client client;
 }

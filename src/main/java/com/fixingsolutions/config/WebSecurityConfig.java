@@ -61,7 +61,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcCo
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedMethods("*");

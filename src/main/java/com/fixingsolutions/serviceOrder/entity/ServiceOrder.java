@@ -10,16 +10,14 @@ import java.util.Date;
 @Data
 public class ServiceOrder {
     @Id
-    private Long id;
+    private Integer id;
     @Version
     private Integer version;
 
     @ManyToOne
-    @JoinTable(
-            name = "budget",
-            joinColumns = @JoinColumn(name = "id"))
     private Budget budget;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
     private String name;
     private Date startedAt;
