@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS employee( id int not null auto_increment primary key,
 );
 
 CREATE TABLE IF NOT EXISTS authority (id int not null auto_increment primary key,
-                             authority varchar_ignorecase(50) not null
+                             role varchar_ignorecase(50) not null
 );
 CREATE TABLE IF NOT EXISTS authorities_employee (
                             employee_id int not null,
