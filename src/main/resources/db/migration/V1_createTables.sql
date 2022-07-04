@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS authorities_employee (
                             constraint fk_authorities_authority foreign key(authority_id) references authority(id),
                             constraint fk_authorities_employee foreign key(employee_id) references employee(id)
 );
-CREATE TABLE IF NOT EXISTS client(id int not null auto_increment primary key,
+CREATE TABLE IF NOT EXISTS customer(id int not null auto_increment primary key,
                      version int,
                      name varchar(45),
                      email varchar(70),
@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS budget(id int not null auto_increment primary key,
                                   expected_hours int,
                                   approved boolean,
                                   created_by int,
-                                  client_id int,
+                                  customer_id int,
                                   constraint fk_budget_employee foreign key(created_by) references employee(id),
-                                  constraint fk_budget_client foreign key (client_id) references client(id)
+                                  constraint fk_budget_customer foreign key (customer_id) references customer(id)
 );
 CREATE TABLE IF NOT EXISTS service_order(id int not null auto_increment primary key,
                           version int,

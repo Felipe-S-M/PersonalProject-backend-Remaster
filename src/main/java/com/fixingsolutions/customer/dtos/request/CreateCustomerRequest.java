@@ -1,4 +1,4 @@
-package com.fixingsolutions.client.dtos.request;
+package com.fixingsolutions.customer.dtos.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UpdateClientRequest {
-    private Integer id;
+public class CreateCustomerRequest {
     private String name;
     private String email;
     private String cpf;

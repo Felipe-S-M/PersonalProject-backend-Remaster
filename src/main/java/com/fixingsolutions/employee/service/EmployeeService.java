@@ -1,11 +1,15 @@
 package com.fixingsolutions.employee.service;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fixingsolutions.authority.entity.Authority;
 import com.fixingsolutions.authority.service.AuthorityService;
 import com.fixingsolutions.employee.EmployeeMapper;
 import com.fixingsolutions.employee.dto.response.EmployeeResponse;
 import com.fixingsolutions.employee.entity.Employee;
 import com.fixingsolutions.employee.repository.EmployeeRepository;
+import com.fixingsolutions.token.utils.TokenUtils;
 import lombok.AllArgsConstructor;
 import lombok.var;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -57,6 +61,14 @@ public class EmployeeService {
         var employee = EmployeeMapper.buildEmployee(name, username, encodedPassword, roles);
         employee.setId(id);
         return EmployeeMapper.buildEmployeeResponse(employeeRepository.save(employee));
+    }
+
+    public Employee getEmployeeFromToken(String authToken) {
+        String token = authToken.substring("Bearer ".length());
+        JWTVerifier verifier = JWT.require(TokenUtils.getAlgorithm()).build();
+        DecodedJWT decodedJWT = verifier.verify(token);
+        return employeeRepository.findByUsername(decodedJWT.getSubject())
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 }

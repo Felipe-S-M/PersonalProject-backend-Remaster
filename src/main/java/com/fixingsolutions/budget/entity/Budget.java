@@ -1,14 +1,20 @@
 package com.fixingsolutions.budget.entity;
 
-import com.fixingsolutions.client.entity.Client;
+import com.fixingsolutions.customer.entity.Customer;
 import com.fixingsolutions.employee.entity.Employee;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Budget {
     @Id
     private Integer id;
@@ -26,6 +32,6 @@ public class Budget {
     private Employee createdBy;
 
     @ManyToOne
-    @JoinColumn(name="client_id")
-    private Client client;
+    @JoinColumn(name="customer_id")
+    private Customer customer;
 }

@@ -1,15 +1,13 @@
-package com.fixingsolutions.client.dtos.response;
+package com.fixingsolutions.customer.dtos.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Data
-public class ClientResponse {
+public class UpdateCustomerRequest {
     private Integer id;
     private String name;
     private String email;

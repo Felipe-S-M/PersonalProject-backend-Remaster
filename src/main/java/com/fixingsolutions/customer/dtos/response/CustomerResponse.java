@@ -1,25 +1,16 @@
-package com.fixingsolutions.client.entity;
+package com.fixingsolutions.customer.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Version;
-
-@Entity
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
-    @Id
+@Builder
+@Data
+public class CustomerResponse {
     private Integer id;
-    @Version
-    private Integer version;
-
     private String name;
     private String email;
     private String cpf;
