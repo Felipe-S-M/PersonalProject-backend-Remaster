@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,6 +14,7 @@ public class CreateBudgetRequest {
     private BigDecimal value;
     private Integer expectedHours;
     private Boolean approved;
-    private Integer createdById;
-    private Integer customerId;
+    private Long createdById;
+    private Long customerId;
+    private List<Long> serviceTypeIds;
 }

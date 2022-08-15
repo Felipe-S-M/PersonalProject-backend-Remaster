@@ -24,12 +24,14 @@ public class BudgetController {
 
     @PostMapping("/create")
     public BudgetResponse create(
-            @RequestBody CreateBudgetRequest request, @RequestHeader("authorization") String authToken) {
+            @RequestBody CreateBudgetRequest request,
+            @RequestHeader("authorization") String authToken
+    ) throws Exception {
         return budgetService.create(request, authToken);
     }
 
     @PostMapping("/update")
-    public BudgetResponse update(@RequestBody UpdateBudgetRequest request) {
+    public BudgetResponse update(@RequestBody UpdateBudgetRequest request) throws Exception {
         return budgetService.update(request);
     }
 

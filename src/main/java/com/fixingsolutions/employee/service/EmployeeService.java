@@ -49,13 +49,13 @@ public class EmployeeService {
         return EmployeeMapper.buildEmployeeResponse(employeeRepository.save(employee));
     }
 
-    public void deleteEmployee(Integer employeeId) {
+        public void deleteEmployee(Long employeeId) {
         employeeRepository.delete(employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new RuntimeException("User not found")));
     }
 
     public EmployeeResponse updateEmployee(
-            Integer id, String name, String username, String password, List<Authority> roles) {
+            Long id, String name, String username, String password, List<Authority> roles) {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         var encodedPassword = encoder.encode(password);
         var employee = EmployeeMapper.buildEmployee(name, username, encodedPassword, roles);

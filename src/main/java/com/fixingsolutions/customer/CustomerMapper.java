@@ -4,7 +4,7 @@ import com.fixingsolutions.customer.dtos.response.CustomerResponse;
 import com.fixingsolutions.customer.entity.Customer;
 
 public class CustomerMapper {
-    public static Customer buildCustomer(Integer id, String name, String email, String cpf, String phone) {
+    public static Customer buildCustomer(Long id, String name, String email, String cpf, String phone) {
         return Customer.builder()
                 .id(id)
                 .cpf(cpf)

@@ -1,16 +1,22 @@
 package com.fixingsolutions.serviceOrder.entity;
 
 import com.fixingsolutions.budget.entity.Budget;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ServiceOrder {
     @Id
-    private Integer id;
+    private Long id;
     @Version
     private Integer version;
 

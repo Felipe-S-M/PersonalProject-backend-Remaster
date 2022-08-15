@@ -37,12 +37,12 @@ public class CustomerService {
         return CustomerMapper.buildCustomerResponse(customerRepository.save(customer));
     }
 
-    public void deleteClient(Integer employeeId) {
+    public void deleteClient(Long employeeId) {
         customerRepository.delete(customerRepository.findById(employeeId)
                 .orElseThrow(() -> new RuntimeException("Client not found")));
     }
 
-    public Customer findById(Integer id) {
+    public Customer findById(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 }

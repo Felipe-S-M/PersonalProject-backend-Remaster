@@ -1,18 +1,22 @@
 package com.fixingsolutions.budget;
 
 import com.fixingsolutions.budget.dtos.response.BudgetResponse;
-import com.fixingsolutions.budget.dtos.response.CustomerResponse;
-import com.fixingsolutions.budget.dtos.response.EmployeeResponse;
 import com.fixingsolutions.budget.entity.Budget;
+import com.fixingsolutions.customer.dtos.response.CustomerResponse;
 import com.fixingsolutions.customer.entity.Customer;
+import com.fixingsolutions.employee.dto.response.EmployeeResponse;
 import com.fixingsolutions.employee.entity.Employee;
+import com.fixingsolutions.serviceType.dto.response.ServiceTypeResponse;
+import com.fixingsolutions.serviceType.entity.ServiceType;
+import lombok.var;
 
 import java.math.BigDecimal;
+import java.util.stream.Collectors;
 
 public class BudgetMapper {
 
     public static Budget buildBudget(
-            Integer id,
+            Long id,
             BigDecimal value,
             Integer expectedHours,
             Boolean approved,
@@ -30,6 +34,9 @@ public class BudgetMapper {
     }
 
     public static BudgetResponse buildBudgetResponse(Budget budget) {
+        var serviceTypes = budget.getServiceTypes().stream()
+                .map(BudgetMapper::buildServiceTypeResponse)
+                .collect(Collectors.toList());
         return BudgetResponse.builder()
                 .id(budget.getId())
                 .customer(buildCustomerResponse(budget.getCustomer()))
@@ -37,6 +44,7 @@ public class BudgetMapper {
                 .approved(budget.getApproved())
                 .expectedHours(budget.getExpectedHours())
                 .value(budget.getValue())
+                .services(serviceTypes)
                 .build();
     }
 
@@ -44,6 +52,13 @@ public class BudgetMapper {
         return CustomerResponse.builder()
                 .email(customer.getEmail())
                 .id(customer.getId())
+                .build();
+    }
+
+    public static ServiceTypeResponse buildServiceTypeResponse(ServiceType serviceType) {
+        return ServiceTypeResponse.builder()
+                .value(serviceType.getValue())
+                .description(serviceType.getDescription())
                 .build();
     }
 

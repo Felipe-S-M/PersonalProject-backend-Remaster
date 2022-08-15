@@ -16,7 +16,7 @@ import javax.persistence.Version;
 @NoArgsConstructor
 public class Customer {
     @Id
-    private Integer id;
+    private Long id;
     @Version
     private Integer version;
 
