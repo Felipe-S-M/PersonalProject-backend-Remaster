@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class BudgetMapper {
 
     public static Budget buildBudget(
-            Long id,
+            Integer id,
             BigDecimal value,
             Integer expectedHours,
             Boolean approved,

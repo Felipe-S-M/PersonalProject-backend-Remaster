@@ -17,7 +17,7 @@ import java.util.List;
 @Valid
 public class UpdateEmployeeRequest {
     @NotNull
-    private Long id;
+    private Integer id;
     @NotNull
     @NotBlank
     private String username, password, name;

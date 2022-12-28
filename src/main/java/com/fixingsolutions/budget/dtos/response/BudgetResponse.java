@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @Data
 public class BudgetResponse {
-    private Long id;
+    private Integer id;
     private BigDecimal value;
     private Integer expectedHours;
     private Boolean approved;

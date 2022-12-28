@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Version;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -18,7 +15,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ServiceType {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Version
     private Integer version;

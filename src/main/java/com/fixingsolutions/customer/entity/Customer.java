@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -16,7 +14,8 @@ import javax.persistence.Version;
 @NoArgsConstructor
 public class Customer {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Version
     private Integer version;
 

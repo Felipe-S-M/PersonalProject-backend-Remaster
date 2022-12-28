@@ -8,7 +8,7 @@ package com.fixingsolutions.serviceType.dto.request;
 @NoArgsConstructor
 @Data
 public class UpdateServiceTypeRequest {
-    private Long id;
+    private Integer id;
     private String description;
     private BigDecimal value;
 }

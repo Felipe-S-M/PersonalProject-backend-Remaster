@@ -10,7 +10,7 @@ import java.util.Date;
 @Builder
 @Data
 public class ServiceOrderResponse {
-    private Long id;
+    private Integer id;
     private Status status;
     private BudgetResponse budget;
     private Date lastUpdated;

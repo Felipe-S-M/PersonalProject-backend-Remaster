@@ -14,7 +14,7 @@ public class CreateBudgetRequest {
     private BigDecimal value;
     private Integer expectedHours;
     private Boolean approved;
-    private Long createdById;
-    private Long customerId;
-    private List<Long> serviceTypeIds;
+    private Integer createdById;
+    private Integer customerId;
+    private List<Integer> serviceTypeIds;
 }

@@ -35,7 +35,7 @@ public class ServiceOrderController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Long id) throws Exception {
+    public void delete(@PathVariable Integer id) throws Exception {
         serviceOrderService.deleteServiceOrder(id);
     }
 

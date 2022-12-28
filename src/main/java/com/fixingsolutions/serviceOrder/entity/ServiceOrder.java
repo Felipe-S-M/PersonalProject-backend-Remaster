@@ -16,7 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class ServiceOrder {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Version
     private Integer version;
 

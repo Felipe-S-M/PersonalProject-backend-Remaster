@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UpdateSORequest {
-    private Long id;
-    private Long budgetId;
+    private Integer id;
+    private Integer budgetId;
     private String name;
     private Status status;
 }

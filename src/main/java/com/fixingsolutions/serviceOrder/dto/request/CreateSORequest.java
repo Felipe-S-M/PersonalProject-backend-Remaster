@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CreateSORequest {
-    private Long budgetId;
+    private Integer budgetId;
     private String name;
 }
 

@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @Data
 public class EmployeeResponse {
-    private Long id;
+    private Integer id;
     private String username;
     private String name;
     private List<Authority> authorities;

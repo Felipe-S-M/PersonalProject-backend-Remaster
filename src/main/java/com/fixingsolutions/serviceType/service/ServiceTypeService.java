@@ -28,12 +28,12 @@ public class ServiceTypeService {
         return serviceTypeRepository.findAll();
     }
 
-    public void delete(Long id) throws Exception {
+    public void delete(Integer id) throws Exception {
         var serviceType = findById(id);
         serviceTypeRepository.delete(serviceType);
     }
 
-    public ServiceType findById(Long id) throws Exception {
+    public ServiceType findById(Integer id) throws Exception {
         return serviceTypeRepository.findById(id)
                 .orElseThrow(() -> new Exception("No service type found"));
     }

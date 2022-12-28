@@ -19,7 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Budget {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Version
     private Integer version;

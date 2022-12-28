@@ -39,9 +39,9 @@ public class BudgetService {
         return BudgetMapper.buildBudgetResponse(budgetRepository.save(budget));
     }
 
-    public List<ServiceType> buildServiceTypes(List<Long> serviceTypeIds) throws Exception {
+    public List<ServiceType> buildServiceTypes(List<Integer> serviceTypeIds) throws Exception {
         var serviceTypes = new ArrayList<ServiceType>();
-        for (Long id : serviceTypeIds) {
+        for (Integer id : serviceTypeIds) {
             serviceTypes.add(serviceTypeService.findById(id));
         }
         return serviceTypes;
@@ -61,7 +61,7 @@ public class BudgetService {
         return BudgetMapper.buildBudgetResponse(budgetRepository.save(budget));
     }
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         var budget = budgetRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Budget not found"));
         budgetRepository.delete(budget);

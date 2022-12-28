@@ -32,7 +32,7 @@ public class ServiceOrderService {
         return ServiceOrderMapper.buildResponse(serviceOrder);
     }
 
-    public void deleteServiceOrder(Long id) throws Exception {
+    public void deleteServiceOrder(Integer id) throws Exception {
         var serviceOrder = serviceOrderRepository.findById(id)
                 .orElseThrow(() -> new Exception("No service order found"));
         serviceOrderRepository.delete(serviceOrder);
