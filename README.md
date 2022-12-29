@@ -6,8 +6,6 @@
 - [Dependencies](#dependencies)
 - [Features](#features)
 - [How to use](#how-to-use-this-repository)
-- [Contact](#contact)
-- [Appendix](#appendix)
 
 ## What is this repository
 
