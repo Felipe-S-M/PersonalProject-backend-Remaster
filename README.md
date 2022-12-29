@@ -43,8 +43,11 @@ This repository is a remake of a old project that i made using spring and java n
 
 * REST API with Spring Web MVC
 
-    * An `AuthController` to demonstrate how to authenticate user with JWT
-    * An `ExampleController` to demonstrate how to use `@PreAuthorize` to restrict access to endpoint and
+    * An `CustomerController` containing all the endpoints related to the customer crud
+    * An `EmployeeController` containing all the endpoints related to the employee crud
+    * An `ServiceOrderController` containing all the endpoints related to the service order crud
+    * An `BudgetController` containing all the endpoints related to the budget crud
+    * An `ServiceTypeController` containing all the endpoints related to the services type crud
 
 * Security
 
