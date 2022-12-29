@@ -49,7 +49,7 @@ public class EmployeeService {
         return EmployeeMapper.buildEmployeeResponse(employeeRepository.save(employee));
     }
 
-        public void deleteEmployee(Integer employeeId) {
+    public void deleteEmployee(Integer employeeId) {
         employeeRepository.delete(employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new RuntimeException("User not found")));
     }
