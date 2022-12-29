@@ -79,3 +79,8 @@ This repository is a remake of a old project that i made using spring and java n
 curl --request POST \
   --url 'http://localhost:8080/login?username=admin%40fixingSolutions.com&password=fixingSolutions'
 
+#### Employee crud
+##### Find all 
+curl --request GET \
+  --url http://localhost:8080/employee/findAll \
+  --header 'Authorization: Bearer {your token}
