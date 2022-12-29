@@ -75,3 +75,7 @@ This repository is a remake of a old project that i made using spring and java n
 3. Run the command "mvn spring-boot:run" on this repository's folder in order to run the application.
 
 ### How to use
+#### Login (the token can be found on the response header)
+curl --request POST \
+  --url 'http://localhost:8080/login?username=admin%40fixingSolutions.com&password=fixingSolutions'
+
