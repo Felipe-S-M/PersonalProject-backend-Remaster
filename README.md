@@ -42,6 +42,7 @@ This repository is a remake of a old project that i made using spring and java n
 * REST API with Spring Web MVC
 
     * An `CustomerController` containing all the endpoints related to the customer crud
+    * An `AuthorityController` containing all the endpoints related to the roles crud
     * An `EmployeeController` containing all the endpoints related to the employee crud
     * An `ServiceOrderController` containing all the endpoints related to the service order crud
     * An `BudgetController` containing all the endpoints related to the budget crud
@@ -84,3 +85,190 @@ curl --request POST \
 curl --request GET \
   --url http://localhost:8080/employee/findAll \
   --header 'Authorization: Bearer {your token}
+#### Create
+curl --request POST \
+  --url http://localhost:8080/employee/createEmployee \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"username": "test@hotmail.com",
+	"password": "TEST",
+	"name": "Test",
+	"authoritiesIds": [
+		"34"
+	]
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/employee/editEmployee \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"username": "testEdit@hotmail.com",
+	"password": "testEdit",
+	"name": "testEdit",
+	"id": "35",
+	"authoritiesIds": [
+		"34"
+	]
+}'
+### Delete
+curl --request DELETE \
+  --url http://localhost:8080/employee/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
+
+#### Authority
+#### Find all
+curl --request GET \
+  --url http://localhost:8080/authority/findAll \
+  --header 'Authorization: Bearer {your token}'
+#### Create
+curl --request POST \
+  --url http://localhost:8080/authority/create \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"role": "ROLE_TEST"
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/authority/edit \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"id":"34",
+	"role": "ROLE_TEST1"
+}'
+#### Delete
+curl --request DELETE \
+  --url http://localhost:8080/authority/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
+
+#### Service Type
+#### Find all
+curl --request GET \
+  --url http://localhost:8080/serviceType/findAll \
+  --header 'Authorization: Bearer {your token}'
+#### Create
+curl --request POST \
+  --url http://localhost:8080/serviceType/create \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"description": "Screen swap",
+	"value": "325.50"
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/serviceType/edit \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"id": "33",
+	"description": "Screen swap",
+	"value": "355.50"
+}'
+#### Delete
+curl --request DELETE \
+  --url http://localhost:8080/serviceType/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
+
+#### Budget
+#### Find all
+curl --request GET \
+  --url http://localhost:8080/budget/findAll \
+  --header 'Authorization: Bearer {your token}'
+#### Create
+curl --request POST \
+  --url http://localhost:8080/budget/create \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"expectedHours": "1",
+	"isApproved": "false",
+	"customerId": "1",
+	"servicesTypesIds": [
+		"33"
+	]
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/budget/edit \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"id": "65",
+	"expectedHours": "3",
+	"isApproved": "false",
+	"customerId": "1",
+	"servicesTypesIds": [
+		"33",
+	]
+}'
+#### Delete
+curl --request DELETE \
+  --url http://localhost:8080/budget/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
+
+#### Service Order
+#### Find all
+curl --request GET \
+  --url http://localhost:8080/serviceOrder/findAll \
+  --header 'Authorization: Bearer {your token}'
+#### Create
+curl --request POST \
+  --url http://localhost:8080/serviceOrder/create \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"budgetId": "66",
+	"name": "test"
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/serviceOrder/edit \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"id": "1",
+	"budgetId": "66",
+	"name": "test",
+	"status": "ON_GOING" 
+}'
+#### Delete
+curl --request DELETE \
+  --url http://localhost:8080/serviceOrder/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
+
+#### Customer
+#### Find all
+curl --request GET \
+  --url http://localhost:8080/customer/findAll \
+  --header 'Authorization: Bearer {your token}'
+#### Create
+curl --request POST \
+  --url http://localhost:8080/customer/create \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"name": "test",
+	"email": "teste",
+	"cpf": "081.251.929-99",
+	"phone": "40028922"
+}'
+#### Update
+curl --request POST \
+  --url http://localhost:8080/customer/update \
+  --header 'Authorization: Bearer {your token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"id": "2",
+	"name": "testeEdit",
+	"email": "testeEdit",
+	"cpf": "081.251.929-98",
+	"phone": "40028923"
+}'
+#### Delete
+curl --request DELETE \
+  --url http://localhost:8080/customer/delete/{id} \
+  --header 'Authorization: Bearer {your token}'
