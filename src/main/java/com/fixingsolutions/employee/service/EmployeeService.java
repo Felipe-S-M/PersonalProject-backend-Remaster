@@ -6,14 +6,14 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fixingsolutions.authority.entity.Authority;
 import com.fixingsolutions.authority.service.AuthorityService;
 import com.fixingsolutions.employee.EmployeeMapper;
+import com.fixingsolutions.employee.dto.request.CreateEmployeeRequest;
 import com.fixingsolutions.employee.dto.response.EmployeeResponse;
 import com.fixingsolutions.employee.entity.Employee;
 import com.fixingsolutions.employee.repository.EmployeeRepository;
 import com.fixingsolutions.token.utils.TokenUtils;
+import com.fixingsolutions.utils.PasswordUtils;
 import lombok.AllArgsConstructor;
 import lombok.var;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,9 +42,13 @@ public class EmployeeService {
         }
     }
 
+    public EmployeeResponse createEmployee(CreateEmployeeRequest request) {
+        var roles = findAllRoles(request.getAuthoritiesIds());
+        return createEmployee(request.getName(), request.getUsername(), request.getPassword(), roles);
+    }
+
     public EmployeeResponse createEmployee(String name, String username, String password, List<Authority> roles) {
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        var encodedPassword = encoder.encode(password);
+        var encodedPassword = PasswordUtils.encodePassword(password);
         var employee = EmployeeMapper.buildEmployee(name, username, encodedPassword, roles);
         return EmployeeMapper.buildEmployeeResponse(employeeRepository.save(employee));
     }
@@ -55,12 +59,24 @@ public class EmployeeService {
     }
 
     public EmployeeResponse updateEmployee(
-            Integer id, String name, String username, String password, List<Authority> roles) {
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        var encodedPassword = encoder.encode(password);
-        var employee = EmployeeMapper.buildEmployee(name, username, encodedPassword, roles);
-        employee.setId(id);
+            Integer id, String name, String username, String password, List<Integer> rolesIds) {
+        var employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+        var roles = findAllRoles(rolesIds);
+        var encodedPassword = PasswordUtils.encodePassword(password);
+        employee.setPassword(encodedPassword);
+        employee.setName(name);
+        employee.setUsername(username);
+        employee.setAuthorities(roles);
         return EmployeeMapper.buildEmployeeResponse(employeeRepository.save(employee));
+    }
+
+    private List<Authority> findAllRoles(List<Integer> rolesIds) {
+        List<Authority> roles = new ArrayList<>();
+        for(Integer id : rolesIds) {
+            roles.add(authorityService.findById(id));
+        }
+        return roles;
     }
 
     public Employee getEmployeeFromToken(String authToken) {

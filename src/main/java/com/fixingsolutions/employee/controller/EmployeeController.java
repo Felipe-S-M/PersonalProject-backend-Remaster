@@ -26,8 +26,7 @@ public class EmployeeController {
 
     @PostMapping("/createEmployee")
     public EmployeeResponse createEmployee(@Valid @RequestBody CreateEmployeeRequest request) {
-        return employeeService.createEmployee(
-                request.getName(), request.getUsername(), request.getPassword(), request.getAuthorities());
+        return employeeService.createEmployee(request);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -42,6 +41,6 @@ public class EmployeeController {
                 request.getName(),
                 request.getUsername(),
                 request.getPassword(),
-                request.getAuthorities());
+                request.getAuthoritiesIds());
     }
 }

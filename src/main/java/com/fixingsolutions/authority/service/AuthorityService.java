@@ -26,15 +26,17 @@ public class AuthorityService {
     }
 
     public Authority updateAuthority(String role, Integer id) {
-        var authority = authorityRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Authority not found"));
+        var authority = findById(id);
         authority.setRole(role);
         return authorityRepository.save(authority);
     }
 
     public void delete(Integer id) {
-        authorityRepository.delete(authorityRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Authority not found")));
+        authorityRepository.delete(findById(id));
     }
 
+    public Authority findById(Integer id) {
+        return authorityRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Authority not found"));
+    }
 }

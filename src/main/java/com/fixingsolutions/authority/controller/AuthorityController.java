@@ -24,8 +24,8 @@ public class AuthorityController {
         return authorityService.findAll();
     }
 
-    @PostMapping("/createEmployee")
-    public Authority createEmployee(@Valid @RequestBody CreateAuthorityRequest request) {
+    @PostMapping("/create")
+    public Authority createAuthority(@Valid @RequestBody CreateAuthorityRequest request) {
         return authorityService.createAuthority(request.getRole());
     }
 
@@ -34,8 +34,8 @@ public class AuthorityController {
         authorityService.delete(id);
     }
 
-    @PostMapping("/editEmployee")
-    public Authority updateEmployee(@Valid @RequestBody UpdateAuthorityRequest request) {
+    @PostMapping("/edit")
+    public Authority edit(@Valid @RequestBody UpdateAuthorityRequest request) {
         return authorityService.updateAuthority(request.getRole(), request.getId());
     }
 }

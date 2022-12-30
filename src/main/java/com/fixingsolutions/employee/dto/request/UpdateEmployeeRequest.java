@@ -23,5 +23,5 @@ public class UpdateEmployeeRequest {
     private String username, password, name;
 
     @NotEmpty
-    private List<Authority> authorities;
+    private List<Integer> authoritiesIds;
 }

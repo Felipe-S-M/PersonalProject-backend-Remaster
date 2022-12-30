@@ -1,6 +1,5 @@
 package com.fixingsolutions.employee.dto.request;
 
-import com.fixingsolutions.authority.entity.Authority;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,16 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class CreateEmployeeRequest {
-    @NotNull(message = "Username invalid")
-    @NotBlank(message = "Username invalid")
+    @NotNull(message = "Username cannot be null")
     private String username;
-    @NotNull(message = "Password invalid")
-    @NotBlank(message = "Password invalid")
+    @NotNull(message = "Password cannot be null")
     private String password;
-    @NotNull(message = "Name invalid")
-    @NotBlank(message = "Name invalid")
+    @NotNull(message = "Name cannot be null")
     private String name;
 
-    @NotEmpty(message = "Authorities can not be empty")
-    private List<Authority> authorities;
+    @NotEmpty(message = "Authorities cannot be empty")
+    private List<Integer> authoritiesIds;
 }
