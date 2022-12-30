@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
@@ -24,14 +25,14 @@ public class BudgetController {
 
     @PostMapping("/create")
     public BudgetResponse create(
-            @RequestBody CreateBudgetRequest request,
+            @Valid @RequestBody CreateBudgetRequest request,
             @RequestHeader("authorization") String authToken
     ) throws Exception {
         return budgetService.create(request, authToken);
     }
 
-    @PostMapping("/update")
-    public BudgetResponse update(@RequestBody UpdateBudgetRequest request) throws Exception {
+    @PostMapping("/edit")
+    public BudgetResponse edit(@Valid @RequestBody UpdateBudgetRequest request) throws Exception {
         return budgetService.update(request);
     }
 

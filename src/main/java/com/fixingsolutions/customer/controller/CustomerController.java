@@ -9,11 +9,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
 @Secured("ROLE_ADMIN")
-@RequestMapping("/client")
+@RequestMapping("/customer")
 @RestController
 public class CustomerController {
     private CustomerService clientService;
@@ -24,12 +25,12 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public CustomerResponse create(@RequestBody CreateCustomerRequest request) {
+    public CustomerResponse create(@Valid @RequestBody CreateCustomerRequest request) {
         return clientService.createClient(request);
     }
 
-    @PostMapping("/update")
-    public CustomerResponse update(@RequestBody UpdateCustomerRequest request) {
+    @PostMapping("/edit")
+    public CustomerResponse edit(@Valid @RequestBody UpdateCustomerRequest request) {
         return clientService.updateClient(request);
     }
 

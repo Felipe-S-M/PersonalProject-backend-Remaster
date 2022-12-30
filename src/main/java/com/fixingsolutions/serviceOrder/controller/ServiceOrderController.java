@@ -1,10 +1,5 @@
 package com.fixingsolutions.serviceOrder.controller;
 
-import com.fixingsolutions.employee.dto.request.CreateEmployeeRequest;
-import com.fixingsolutions.employee.dto.request.UpdateEmployeeRequest;
-import com.fixingsolutions.employee.dto.response.EmployeeResponse;
-import com.fixingsolutions.employee.entity.Employee;
-import com.fixingsolutions.employee.service.EmployeeService;
 import com.fixingsolutions.serviceOrder.dto.request.CreateSORequest;
 import com.fixingsolutions.serviceOrder.dto.request.UpdateSORequest;
 import com.fixingsolutions.serviceOrder.dto.response.ServiceOrderResponse;
@@ -29,8 +24,8 @@ public class ServiceOrderController {
         return serviceOrderService.findAll();
     }
 
-    @PostMapping("/createServiceOrder")
-    public ServiceOrderResponse createServiceOrder(@Valid @RequestBody CreateSORequest request) throws Exception {
+    @PostMapping("/create")
+    public ServiceOrderResponse create(@Valid @RequestBody CreateSORequest request) throws Exception {
         return serviceOrderService.createServiceOrder(request);
     }
 
@@ -39,8 +34,8 @@ public class ServiceOrderController {
         serviceOrderService.deleteServiceOrder(id);
     }
 
-    @PostMapping("/editServiceOrder")
-    public ServiceOrderResponse editServiceOrder(@Valid @RequestBody UpdateSORequest request) throws Exception {
+    @PostMapping("/edit")
+    public ServiceOrderResponse edit(@Valid @RequestBody UpdateSORequest request) throws Exception {
         return serviceOrderService.update(request);
     }
 }

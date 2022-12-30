@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -11,10 +12,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class CreateBudgetRequest {
-    private BigDecimal value;
+    @NotNull(message = "ExpectedHours cannot be null")
     private Integer expectedHours;
-    private Boolean approved;
-    private Integer createdById;
+    @NotNull(message = "IsApproved cannot be null")
+    private Boolean isApproved;
+    @NotNull(message = "Customer cannot be null")
     private Integer customerId;
-    private List<Integer> serviceTypeIds;
+    @NotNull(message = "ServicesTypes cannot be null")
+    private List<Integer> servicesTypesIds;
 }

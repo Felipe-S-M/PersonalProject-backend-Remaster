@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.var;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,9 +33,10 @@ public class BudgetService {
     public BudgetResponse create(CreateBudgetRequest request, String authToken) throws Exception {
         var employee = employeeService.getEmployeeFromToken(authToken);
         var customer = customerService.findById(request.getCustomerId());
+        var serviceTypes = buildServiceTypes(request.getServicesTypesIds());
+        var value = serviceTypes.stream().map(ServiceType::getValue).reduce(BigDecimal.ZERO,BigDecimal::add);
         var budget = BudgetMapper.buildBudget(
-                null, request.getValue(), request.getExpectedHours(), request.getApproved(), employee, customer);
-        var serviceTypes = buildServiceTypes(request.getServiceTypeIds());
+                null, value, request.getExpectedHours(), request.getIsApproved(), employee, customer);
         budget.setServiceTypes(serviceTypes);
         return BudgetMapper.buildBudgetResponse(budgetRepository.save(budget));
     }
@@ -51,11 +53,12 @@ public class BudgetService {
         var budget = budgetRepository.findById(request.getId())
                 .orElseThrow(() -> new RuntimeException("Budget not found"));
         var customer = customerService.findById(request.getCustomerId());
-        var serviceTypes = buildServiceTypes(request.getServiceTypeIds());
+        var serviceTypes = buildServiceTypes(request.getServicesTypesIds());
+        var value = serviceTypes.stream().map(ServiceType::getValue).reduce(BigDecimal.ZERO,BigDecimal::add);
         budget.setServiceTypes(serviceTypes);
-        budget.setValue(request.getValue());
+        budget.setValue(value);
         budget.setExpectedHours(request.getExpectedHours());
-        budget.setApproved(request.getApproved());
+        budget.setApproved(request.getIsApproved());
         budget.setCustomer(customer);
         budget.setServiceTypes(serviceTypes);
         return BudgetMapper.buildBudgetResponse(budgetRepository.save(budget));

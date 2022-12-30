@@ -51,6 +51,9 @@ public class BudgetMapper {
     public static CustomerResponse buildCustomerResponse(Customer customer) {
         return CustomerResponse.builder()
                 .email(customer.getEmail())
+                .cpf(customer.getCpf())
+                .name(customer.getName())
+                .phone(customer.getPhone())
                 .id(customer.getId())
                 .build();
     }
@@ -65,6 +68,8 @@ public class BudgetMapper {
     public static EmployeeResponse buildEmployeeResponse(Employee employee) {
         return EmployeeResponse.builder()
                 .id(employee.getId())
+                .name(employee.getName())
+                .authorities(employee.getAuthorities())
                 .username(employee.getUsername())
                 .build();
     }

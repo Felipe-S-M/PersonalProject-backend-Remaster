@@ -26,8 +26,8 @@ public class ServiceTypeController {
         return serviceTypeService.findAll();
     }
 
-    @PostMapping("/createServiceOrder")
-    public ServiceTypeResponse createServiceOrder(
+    @PostMapping("/create")
+    public ServiceTypeResponse create(
             @Valid @RequestBody CreateServiceTypeRequest request) {
         return serviceTypeService.createServiceType(request);
     }
@@ -37,8 +37,8 @@ public class ServiceTypeController {
         serviceTypeService.delete(id);
     }
 
-    @PostMapping("/editServiceOrder")
-    public ServiceTypeResponse editServiceOrder(
+    @PostMapping("/edit")
+    public ServiceTypeResponse edit(
             @Valid @RequestBody UpdateServiceTypeRequest request) throws Exception {
         return serviceTypeService.update(request);
     }

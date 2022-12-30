@@ -47,6 +47,6 @@ public class ServiceOrderService {
         serviceOrder.setName(request.getName());
         serviceOrder.setStatus(request.getStatus());
         serviceOrder.setLastUpdated(new Date());
-        return ServiceOrderMapper.buildResponse(serviceOrder);
+        return ServiceOrderMapper.buildResponse(serviceOrderRepository.save(serviceOrder));
     }
 }
