@@ -1,4 +1,4 @@
-# Spring REST API Starter 🚀
+# Fixing Solutions
 
 ## Table of Contents
 
