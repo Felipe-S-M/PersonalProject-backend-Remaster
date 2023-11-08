@@ -1,6 +1,5 @@
 package com.fixingsolutions.authority.entity;
 
-import com.fixingsolutions.employee.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

@@ -3,7 +3,6 @@ package com.fixingsolutions.authority.service;
 import com.fixingsolutions.authority.AuthorityMapper;
 import com.fixingsolutions.authority.entity.Authority;
 import com.fixingsolutions.authority.repository.AuthorityRepository;
-import com.fixingsolutions.employee.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.var;
 import org.springframework.stereotype.Service;

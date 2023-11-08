@@ -1,7 +1,5 @@
 package com.fixingsolutions.serviceType.controller;
 
-import com.fixingsolutions.serviceOrder.dto.request.UpdateSORequest;
-import com.fixingsolutions.serviceOrder.dto.response.ServiceOrderResponse;
 import com.fixingsolutions.serviceType.dto.request.CreateServiceTypeRequest;
 import com.fixingsolutions.serviceType.dto.request.UpdateServiceTypeRequest;
 import com.fixingsolutions.serviceType.dto.response.ServiceTypeResponse;

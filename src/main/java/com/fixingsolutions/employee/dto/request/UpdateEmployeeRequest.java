@@ -1,6 +1,5 @@
 package com.fixingsolutions.employee.dto.request;
 
-import com.fixingsolutions.authority.entity.Authority;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
