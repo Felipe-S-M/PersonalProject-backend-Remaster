@@ -7,7 +7,6 @@ import com.fixingsolutions.serviceType.dto.response.ServiceTypeResponse;
 import com.fixingsolutions.serviceType.entity.ServiceType;
 import com.fixingsolutions.serviceType.repository.ServiceTypeRepository;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

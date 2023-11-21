@@ -8,7 +8,6 @@ import com.fixingsolutions.serviceOrder.dto.response.ServiceOrderResponse;
 import com.fixingsolutions.serviceOrder.entity.ServiceOrder;
 import com.fixingsolutions.serviceOrder.repository.ServiceOrderRepository;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;

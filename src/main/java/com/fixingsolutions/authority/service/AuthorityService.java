@@ -4,7 +4,6 @@ import com.fixingsolutions.authority.AuthorityMapper;
 import com.fixingsolutions.authority.entity.Authority;
 import com.fixingsolutions.authority.repository.AuthorityRepository;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

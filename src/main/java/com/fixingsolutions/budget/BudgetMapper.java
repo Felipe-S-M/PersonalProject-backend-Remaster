@@ -8,7 +8,6 @@ import com.fixingsolutions.employee.dto.response.EmployeeResponse;
 import com.fixingsolutions.employee.entity.Employee;
 import com.fixingsolutions.serviceType.dto.response.ServiceTypeResponse;
 import com.fixingsolutions.serviceType.entity.ServiceType;
-import lombok.var;
 
 import java.math.BigDecimal;
 import java.util.stream.Collectors;

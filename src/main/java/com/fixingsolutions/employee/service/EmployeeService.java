@@ -13,7 +13,6 @@ import com.fixingsolutions.employee.repository.EmployeeRepository;
 import com.fixingsolutions.token.utils.TokenUtils;
 import com.fixingsolutions.utils.PasswordUtils;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

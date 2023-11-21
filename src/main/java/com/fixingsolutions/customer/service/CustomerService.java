@@ -7,7 +7,6 @@ import com.fixingsolutions.customer.dtos.response.CustomerResponse;
 import com.fixingsolutions.customer.entity.Customer;
 import com.fixingsolutions.customer.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -3,7 +3,6 @@ package com.fixingsolutions.config.authenticationFilter;
 import com.fixingsolutions.token.utils.TokenUtils;
 import com.fixingsolutions.userDetails.entity.UserDetailsImpl;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

@@ -10,7 +10,6 @@ import com.fixingsolutions.employee.service.EmployeeService;
 import com.fixingsolutions.serviceType.entity.ServiceType;
 import com.fixingsolutions.serviceType.service.ServiceTypeService;
 import lombok.AllArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
